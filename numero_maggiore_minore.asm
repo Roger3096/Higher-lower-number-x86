@@ -1,14 +1,11 @@
-
-; You may customize this and other start-up templates; 
-; The location of this template is c:\emu8086\inc\0_com_template.txt
 name "numero_maggiore_minore"
 org 100h
 
 .data
 Numero db ?
 messaggio1 db "inserisci il numero $"
-messaggiomin db "0 $"
-messaggiomag db "1 $"
+messaggiomin db "il numero e' minore di 5 $"
+messaggiomag db "il numero e' maggiore di 5 $"
 tornaacapo db 10, 13 , "$"
 
 .code
@@ -31,27 +28,27 @@ JMP fine
 
 controllo:
 cmp al, 053   ;verifica che in al sia presente 5 (in ASCII 053)
-jnb superiore   ;se è maggiore salta su superiore
-JMP minore    ;se è minore salta su minore
+jnb superiore   ;se ? maggiore salta su superiore
+JMP minore    ;se ? minore salta su minore
 
 minore:
 
-mov DX, offset tornaacapo     ;torna a capo per una maggiore leggibilità
+mov DX, offset tornaacapo     ;torna a capo per una maggiore leggibilit?
 mov ah, 09H 
 int 21h
 
-mov dx, offset messaggiomin    ;scrive 0 in quanto è minore di 5
+mov dx, offset messaggiomin    ;scrive 0 in quanto ? minore di 5
 mov ah, 09h
 int 21h 
 JMP fine  ;salta su fine per terminare il programma
 
 superiore:
 
-mov DX, offset tornaacapo    ;torna a capo per una maggiore leggibilità
+mov DX, offset tornaacapo    ;torna a capo per una maggiore leggibilit?
 mov ah, 09H 
 int 21h
 
-mov dx, offset messaggiomag    ;scrive 1 in quanto è maggiore di 5
+mov dx, offset messaggiomag    ;scrive 1 in quanto ? maggiore di 5
 mov ah, 09h
 int 21h 
  
