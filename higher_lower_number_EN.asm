@@ -17,7 +17,7 @@ mov ah, 01h     ;insert the number
 int 21h
 
 CMP al, 00H  ;verify that the user doesn't press ENTER
-JZ end   ;if he presses it, then it goes to END 
+JNZ end   ;if he presses it, then it goes to END 
 
 cmp al, 040h   ;check that no letters from the user are entered
 jb check 
