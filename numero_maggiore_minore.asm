@@ -1,4 +1,4 @@
-name "numero_maggiore_minore"
+name "numero_maggiore_minore_IT"
 org 100h
 
 .data
